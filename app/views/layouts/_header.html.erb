@@ -22,11 +22,19 @@
         </div>
       </li>
       <% if user_signed_in? %>
-        <%= link_to "アカウント編集", edit_user_registration_path %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
+        <li class= "nav-item">
+          <%= link_to "アカウント編集", edit_user_registration_path, class: "nav-item nav-link active" %>
+        </li>
+        <li class= "nav-item">
+          <%= link_to "ログアウト", destroy_user_session_path, class: "nav-item nav-link active", method: :delete, data: { confirm: "ログアウトしますか？" } %>
+        </li>
       <% else %>
-        <%= link_to "新規登録", new_user_registration_path %>
-        <%= link_to "ログイン", new_user_session_path %>
+        <li class= "nav-item">
+          <%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link active" %>
+        </li>
+        <li class= "nav-item">
+          <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
+        </li>
       <% end %>
     </div>
   </div>
