@@ -2,7 +2,7 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap/scss/bootstrap";
+@import 'bootstrap/scss/bootstrap';
 
 /* 全体 */
 
@@ -35,4 +35,8 @@
 
 .alert-alert {
   @extend .alert-danger;
+}
+
+body {
+  padding-top: 56px;
 }
