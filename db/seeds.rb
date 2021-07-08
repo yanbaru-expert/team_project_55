@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# 管理者用メールアドレスを設定
+admin_email = "admin@example.com"
+
 email = "test@example.com"
 password = "password"
 
@@ -37,4 +40,7 @@ CSV.foreach("db/csv_data/movie_data.csv", headers: true) do |row|
     url: row["url"]
   )
 end
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.find_or_create_by!(email: admin_email) do |adminuser|
+  adminuser.password = password
+  puts "管理者ユーザーの初期データインポートに成功しました。"
+end
