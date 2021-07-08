@@ -1,5 +1,4 @@
 ActiveAdmin.register User do
-
   permit_params :email, :password, :password_confirmation
 
   form do |f|
@@ -25,5 +24,4 @@ ActiveAdmin.register User do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

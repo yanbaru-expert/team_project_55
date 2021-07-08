@@ -1,5 +1,4 @@
 ActiveAdmin.register Text do
-
   permit_params :genre, :title, :content
 
   index do
@@ -32,7 +31,7 @@ ActiveAdmin.register Text do
     f.actions
   end
 
-  filter :genre, as: :select, collection: Text.genres_i18n.invert.transform_values {|v| Text.genres[v] }
+  filter :genre, as: :select, collection: Text.genres_i18n.invert.transform_values { |v| Text.genres[v] }
   filter :title
   filter :content
   filter :created_at
@@ -52,5 +51,4 @@ ActiveAdmin.register Text do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end
