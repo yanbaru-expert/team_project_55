@@ -5,9 +5,7 @@
 
   <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', required: true,
-+                                      minlength: @minimum_password_length,
-+                                      maxlength: '30' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', required: true, minlength: @minimum_password_length, maxlength: '30' %>
   </div>
 
   <div class="form-group">
@@ -28,5 +26,5 @@
     <%= f.submit t('.sign_up'), class: 'btn btn-primary btn-block' %>
   </div>
 <% end %>
-
+<hr class="devise-link my-5">
 <%= render 'devise/shared/links' %>
