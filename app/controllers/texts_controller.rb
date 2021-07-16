@@ -6,10 +6,4 @@ class TextsController < ApplicationController
   def show
     @text = Text.find(params[:id])
   end
-
-  private
-
-  def text_params
-    params.require(:text).permit(:title, :content)
-  end
 end
