@@ -2,15 +2,19 @@
   <div class="card content-card border-dark mb-3">
     <%= link_to text_path(text) do %>
       <div class="card-header p-0">
-        <img loading="lazy" alt="<%= text.title%> "class="img-fluid" src="https://d5izmuz0mcjzz.cloudfront.net/texts/no_image.jpg">
+        <img loading="lazy" alt="<%= text.title %> "class="img-fluid" src="https://d5izmuz0mcjzz.cloudfront.net/texts/no_image.jpg">
       </div>
       <div class="card-body text-dark">
-        <p id="text-<%=text.id%>">
+        <p id="text-<%= text.id %>">
           <object>
-            <a href="#" class="btn btn-secondary btn-block">読破済みにする</a>
+            <% if text.read_by?(current_user) %>
+              <%= render "read", text: text %>
+            <% else %>
+              <%= render "unread", text: text %>
+            <% end %>
           </object>
         </P>
-        <p class="card-text mt-3"><%= text.title%></p>
+        <p class="card-text mt-3"><%= text.title %></p>
         <p>【<%= text.genre_i18n %>】</p>
       </div>
     <% end %>
