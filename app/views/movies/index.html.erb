@@ -1,5 +1,9 @@
 <div class="contents-title text-center">
-  <h1>Ruby/Rails 動画</h1>
+  <% if params[:genre] %>
+    <h1>PHP 動画</h1>
+  <% else %>
+    <h1>Ruby/Rails 動画</h1>
+  <% end%>
 </div>
 <div class="row">
   <%= render @movies %>
