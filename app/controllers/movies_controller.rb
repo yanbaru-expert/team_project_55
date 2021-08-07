@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  PER_PAGE = 20
+  PER_PAGE = 12
 
   def index
     @movies = if params[:genre]
