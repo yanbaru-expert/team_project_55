@@ -19,6 +19,6 @@ class Movie < ApplicationRecord
   RAILS_GENRE_LIST = %w[basic git ruby rails].freeze
 
   def watch_by?(user)
-    watch_progresses.exists?(user_id: user.id)
+    watch_progresses.any? { |watch_progress| watch_progress.user_id == user.id }
   end
 end

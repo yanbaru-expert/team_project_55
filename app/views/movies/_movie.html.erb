@@ -5,8 +5,8 @@
         <%= embed_youtube(movie.url) %>
       </div>
     </div>
-    <div class="card-body text-dark">      
-      <p id="movie-<%= movie.id %>">
+    <div class="card-body text-dark">
+      <p id="movie-<%= movie.id %>">      
         <object>
           <% if movie.watch_by?(current_user) %>
             <%= render "watch", movie: movie %>
