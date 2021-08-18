@@ -17,6 +17,15 @@ class Text < ApplicationRecord
   }
 
   RAILS_GENRE_LIST = %w[basic git ruby rails].freeze
+  PHP_GENRE_LIST = %w[php].freeze
+
+  def self.genre_list(genre)
+    if genre == "php"
+      where(genre: Text::PHP_GENRE_LIST)
+    else
+      where(genre: Text::RAILS_GENRE_LIST)
+    end
+  end
 
   def read_by?(user)
     read_progresses.exists?(user_id: user.id)
