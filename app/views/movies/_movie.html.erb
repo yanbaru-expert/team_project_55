@@ -5,9 +5,17 @@
         <%= embed_youtube(movie.url) %>
       </div>
     </div>
-    <div class="card-body text-dark">      
-      <object><a class="btn btn-secondary btn-block">読破済みにする</a></object>
-      <p class="card-text mt-3">LV.<%= @movies.offset_value + 1 + movie_counter %>：<%= movie.title %></p>
+    <div class="card-body text-dark">
+      <p id="movie-<%= movie.id %>">      
+        <object>
+          <% if movie.watch_by?(current_user) %>
+            <%= render "watch", movie: movie %>
+          <% else %>
+            <%= render "unwatch", movie: movie %>
+          <% end %>
+        </object>
+      </p>
+      <p class="card-text mt-3">Lv.<%= @movies.offset_value + 1 + movie_counter %>：<%= movie.title %></p>
     </div>
   </div>
 </div>
